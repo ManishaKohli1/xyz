@@ -1,0 +1,20 @@
+---
+agent_crowdstrike_customer_id: 58CE029866E14481A529D5E495AEB242-76
+
+agent_crowdstrike:
+  source: "https://{{ software_binaries_storage_account_name }}.blob.core.windows.net/agents/crowdstrike/"
+  binaries:
+    redhat:
+      "7": falcon-sensor-6.28.0-12504.el7.x86_64-latest.rpm
+      "8": falcon-sensor-6.28.0-12504.el8.x86_64-latest.rpm
+    windows: WindowsSensor-6.26-latest.exe
+    debian:
+      "20": falcon-sensor_6.26.0-12304_amd64.deb
+  destination_location:
+    redhat: /opt/build/crowdstrike/cloud-agent
+    windows: C:\\ITSOE\\Ansible
+    debian: /opt/build/crowdstrike/cloud-agent
+
+configure_host_as_image: true
+max_retry: 5
+max_retry_delay: 10
